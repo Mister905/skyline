@@ -31,7 +31,7 @@ const Blog = props => {
     <Layout>
       <Head title={props.data.contentfulBlogPost.title} />
       <h1>{props.data.contentfulBlogPost.title}</h1>
-      <p>{props.data.contentfulBlogPost.createdAt}</p>
+      <p>{props.data.contentfulBlogPost.created_at}</p>
       {documentToReactComponents(
         props.data.contentfulBlogPost.content.json,
         options

@@ -15,7 +15,7 @@ touch .env (Contentful token)
 npm install the dependencies in gatsby-config.js plugin array
 
 npm i gatsby-plugin-react-helmet gatsby-source-contentful gatsby-plugin-sass gatsby-source-filesystem gatsby-plugin-sharp gatsby-remark-relative-images gatsby-
-remark-images gatsby-transformer-remark react-helment
+remark-images gatsby-transformer-remark react-helment materialize-css@next node-sass @contentful/rich-text-react-renderer
 
 npm i --save-dev cross-env
 
@@ -66,3 +66,5 @@ setup layout components
 setup template
 
 setup assets
+
+touch gatsby-node.js

@@ -14,7 +14,7 @@ const Head = props => {
     }
   `)
 
-  return <Helmet title={`${title} | ${data.site.siteMetadata.title}`} />
+  return <Helmet title={`${title}`} />
 }
 
 export default Head
