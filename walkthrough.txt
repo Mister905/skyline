@@ -1,0 +1,68 @@
+gatsby new skyline https://github.com/gatsbyjs/gatsby-starter-hello-world 
+
+Contentful -> Create new space
+
+Content Model -> Add content type
+
+Content -> Add Blog Post
+
+Settings -> API Keys -> skyline_api_key
+
+npm i dotenv
+
+touch .env (Contentful token)
+
+npm install the dependencies in gatsby-config.js plugin array
+
+npm i gatsby-plugin-react-helmet gatsby-source-contentful gatsby-plugin-sass gatsby-source-filesystem gatsby-plugin-sharp gatsby-remark-relative-images gatsby-
+remark-images gatsby-transformer-remark react-helment
+
+npm i --save-dev cross-env
+
+update gatsby-config.js (const dotenv = require('dotenv'))
+
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config()
+}
+
+{
+    resolve: 'gatsby-source-contentful',
+    options: {
+        spaceId: 68z4bw2f97zb,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    }
+}
+
+package.json
+"develop": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop"
+
+*** Custom Favicon ***
+Replace static/favicon
+
+*** Sample GraphQL Query ***
+query {
+    allContentfulBlogPost {
+        edges {
+            node {
+                title
+                slug,
+                created_at,
+                images {
+                    fluid {
+                        src
+                    }
+                }
+                content {
+                  json
+                }
+            }
+        }
+    }
+}
+
+
+setup layout components
+
+setup template
+
+setup assets
