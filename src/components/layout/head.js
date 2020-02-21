@@ -14,7 +14,14 @@ const Head = props => {
     }
   `)
 
-  return <Helmet title={`${title}`} />
+  return (
+    <Helmet title={`${title}`}>
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+        rel="stylesheet"
+      ></link>
+    </Helmet>
+  )
 }
 
 export default Head

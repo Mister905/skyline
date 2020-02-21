@@ -25,28 +25,38 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Skyline" />
-      <div className="container">
+      <div className="container mt-50">
         <div className="row">
           <div className="col m12">
-            <h1>Skyline</h1>
-            <ul>
-              {data.allContentfulBlogPost.edges.map(edge => {
-                return (
-                  <li>
-                    <Link to={`/${edge.node.slug}`}>
-                      <div className="blog-index-title">{edge.node.title}</div>
-                    </Link>
-                    <p>{edge.node.created_at}</p>
-                    <Link to={`/${edge.node.slug}`}>
-                      <img
-                        src={edge.node.thumbnail.resize.src}
-                        alt={edge.node.thumbnail.title}
-                      />
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
+            {data.allContentfulBlogPost.edges.map((edge, i) => {
+              return (
+                <div className="row" key={i}>
+                  <div className="col m10 offset-m2 card">
+                    <div className="row">
+                      <div className="col m3">
+                        <Link to={`/${edge.node.slug}`}>
+                          <img
+                            src={edge.node.thumbnail.resize.src}
+                            className="responsive-img"
+                            alt={edge.node.thumbnail.title}
+                          />
+                        </Link>
+                      </div>
+                      <div className="col m6">
+                        <Link to={`/${edge.node.slug}`}>
+                          <div className="blog-index-title">
+                            {edge.node.title}
+                          </div>
+                        </Link>
+                        <div className="blog-index-created fw-600">
+                          {edge.node.created_at}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

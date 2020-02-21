@@ -1,21 +1,26 @@
 @import "./Header.scss";
 @import "./Footer.scss";
+@import "./Footer.scss";
+@import "./Layout.scss";
+@import "./Landing.scss";
+@import "./Blog.scss";
+
+* {
+  font-family: "Roboto";
+}
 
 .flex {
-  display: flex;
+  display: flex !important;
 }
 
-.site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+.mt-50 {
+  margin-top: 50px;
 }
 
-.site-content {
-  flex-grow: 1;
+.fw-600 {
+  font-weight: 600;
 }
 
-.blog-index-title {
-  font-size: 3.56rem;
-  display: inline;
+.roboto {
+  font-family: "Roboto";
 }

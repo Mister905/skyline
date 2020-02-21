@@ -11,7 +11,7 @@ const header = () => {
           <Link to={"/"} className="brand-logo center">
             <img src={Logo} alt="" />
           </Link>
-          <ul id="nav-mobile flex" className="left hide-on-med-and-down">
+          <ul id="nav-mobile" className="left hide-on-med-and-down flex">
             <li className="custom-navlink">
               <Link to={"/"}>Home</Link>
             </li>
