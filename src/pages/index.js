@@ -25,24 +25,31 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Skyline" />
-      <h1>Skyline</h1>
-      <ol>
-        {data.allContentfulBlogPost.edges.map(edge => {
-          console.log(edge)
-          return (
-            <li>
-              <Link to={`/${edge.node.slug}`}>
-                <img
-                  src={edge.node.thumbnail.resize.src}
-                  alt={edge.node.thumbnail.title}
-                />
-                <h2>{edge.node.title}</h2>
-                <p>{edge.node.createdAt}</p>
-              </Link>
-            </li>
-          )
-        })}
-      </ol>
+      <div className="container">
+        <div className="row">
+          <div className="col m12">
+            <h1>Skyline</h1>
+            <ul>
+              {data.allContentfulBlogPost.edges.map(edge => {
+                return (
+                  <li>
+                    <Link to={`/${edge.node.slug}`}>
+                      <div className="blog-index-title">{edge.node.title}</div>
+                    </Link>
+                    <p>{edge.node.created_at}</p>
+                    <Link to={`/${edge.node.slug}`}>
+                      <img
+                        src={edge.node.thumbnail.resize.src}
+                        alt={edge.node.thumbnail.title}
+                      />
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }

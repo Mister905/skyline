@@ -1,22 +1,22 @@
 import React from "react"
+import { Link } from "gatsby"
+import Logo from "../../assets/img/skyline_logo.png"
 
 const header = () => {
   return (
     <div>
-      <nav>
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo center">
-            Logo
-          </a>
-          <ul id="nav-mobile" className="left hide-on-med-and-down">
-            <li>
-              <a href="sass.html">Sass</a>
+      <nav className="custom-nav">
+        <div className="nav-wrapper container flex">
+        
+          <Link to={"/"} className="brand-logo center">
+            <img src={Logo} alt="" />
+          </Link>
+          <ul id="nav-mobile flex" className="left hide-on-med-and-down">
+            <li className="custom-navlink">
+              <Link to={"/"}>Home</Link>
             </li>
-            <li>
-              <a href="badges.html">Components</a>
-            </li>
-            <li>
-              <a href="collapsible.html">JavaScript</a>
+            <li className="custom-navlink">
+              <a href="badges.html">Cities</a>
             </li>
           </ul>
         </div>
