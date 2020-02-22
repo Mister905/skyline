@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Head = props => {
+  
   const { title } = props
 
   return (

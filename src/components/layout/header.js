@@ -7,7 +7,6 @@ const header = () => {
     <div>
       <nav className="custom-nav">
         <div className="nav-wrapper container flex">
-        
           <Link to={"/"} className="brand-logo center">
             <img src={Logo} alt="" />
           </Link>
@@ -16,7 +15,7 @@ const header = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li className="custom-navlink">
-              <a href="badges.html">Cities</a>
+            <Link to={"/cities"}>Cities</Link>
             </li>
           </ul>
         </div>
