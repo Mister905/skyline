@@ -10,7 +10,7 @@ Settings -> API Keys -> skyline_api_key
 
 npm i dotenv
 
-touch .env (Contentful token)
+touch .env (Contentful token) (Need to define these inside netlify when deploying)
 
 npm install the dependencies in gatsby-config.js plugin array
 
@@ -68,3 +68,13 @@ setup template
 setup assets
 
 touch gatsby-node.js
+
+Remember how we had to kill the server and restart it to fetch new data? Well, we don’t want to have to trigger a redeploy manually every time someone adds or changes content in Contenful. The solution to that is to use Contentful’s hooks to trigger an automatic Netlify redeploy of our site. This means that new pages will get added to your blog automatically for each new blog post you add.
+
+Netlify -> Settings -> Build and Deploy -> Build Hooks -> Add Build Hook
+Build Hook Name -> e.g. 'contentful'
+
+Now copy the buildhook url and go back to your Contentful dashboard. Hit the settings dropwdown and select Webhooks. The Webhooks screen already has a template for Netlify in the bottom right. Click on this.
+
+In the form that appears, add the Netlify build hook url and click Create Webhook.
+Now go back to the Content page and add a new blog post. As soon as you hit publish, Contentful will make an API call to the build hook you provided. This will in turn, cause Netlify to redeploy your site. Gatsby will pull in the Contentful data all over again, which now includes the new post you added, and create a new page based on the new blog post.
