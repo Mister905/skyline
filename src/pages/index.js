@@ -10,6 +10,7 @@ const IndexPage = () => {
         edges {
           node {
             title
+            description
             slug
             created_at(formatString: "MMMM Do YYYY")
             thumbnail {
@@ -48,8 +49,11 @@ const IndexPage = () => {
                             {edge.node.title}
                           </div>
                         </Link>
-                        <div className="blog-index-created fw-600">
+                        <div className="blog-index-created">
                           {edge.node.created_at}
+                        </div>
+                        <div className="blog-index-description">
+                          {edge.node.description}
                         </div>
                       </div>
                     </div>

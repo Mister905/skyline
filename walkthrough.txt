@@ -2,7 +2,7 @@ gatsby new skyline https://github.com/gatsbyjs/gatsby-starter-hello-world
 
 Contentful -> Create new space
 
-Content Model -> Add content type
+Content Model -> Add content types (slug -> Appearance -> Slug)
 
 Content -> Add Blog Post
 

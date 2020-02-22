@@ -9,6 +9,7 @@ export const query = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       created_at(formatString: "MMMM Do, YYYY")
+      tags
       content {
         json
       }
@@ -36,50 +37,54 @@ const Blog = props => {
       <Head title={props.data.contentfulBlogPost.title} />
       <div className="container mt-50">
         <div className="row">
-          <div className="col m12">
-            <div className="row">
-              <div className="col m12">
-                <div className="post-heading">
-                  {props.data.contentfulBlogPost.title}
-                </div>
-                <div className="blog-index-created fw-600">
-                  {props.data.contentfulBlogPost.created_at}
-                </div>
-              </div>
+          <div className="col m8 offset-m2">
+            <div className="post-heading">
+              {props.data.contentfulBlogPost.title}
             </div>
-            <div className="row">
-              <div className="col m12">
-                {documentToReactComponents(
-                  props.data.contentfulBlogPost.content.json,
-                  options
-                )}
-              </div>
+            <div className="blog-index-created fw-600">
+              {props.data.contentfulBlogPost.created_at}
             </div>
 
-            <div className="row">
-              <div className="col m6">
-                {previous && (
-                  <Link
-                    to={previous.slug}
-                    className="left fw-600 post-nav-link"
-                    rel="prev"
-                  >
-                    ← Previous
-                  </Link>
-                )}
+            {props.data.contentfulBlogPost.tags ? (
+              <div className="tags">
+                {props.data.contentfulBlogPost.tags.map(tag => {
+                  return <div className="chip">{tag}</div>
+                })}
               </div>
-              <div className="col m6">
-                {next && (
-                  <Link
-                    to={next.slug}
-                    className="right fw-600 post-nav-link"
-                    rel="next"
-                  >
-                    Next →
-                  </Link>
-                )}
-              </div>
-            </div>
+            ) : null}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col m8 offset-m2">
+            {documentToReactComponents(
+              props.data.contentfulBlogPost.content.json,
+              options
+            )}
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col m6">
+            {previous && (
+              <Link
+                to={previous.slug}
+                className="left fw-600 post-nav-link"
+                rel="prev"
+              >
+                <i class="material-icons dp48">arrow_back</i> Previous
+              </Link>
+            )}
+          </div>
+          <div className="col m6">
+            {next && (
+              <Link
+                to={next.slug}
+                className="right fw-600 post-nav-link"
+                rel="next"
+              >
+                Next <i class="material-icons dp48">arrow_forward</i>
+              </Link>
+            )}
           </div>
         </div>
       </div>
