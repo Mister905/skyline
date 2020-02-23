@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import Pooh from "../assets/img/pooh.jpg"
 import { Link } from "gatsby"
-import Layout from "../components/layout/layout"
-import Head from "../components/layout/head"
+import Layout from "../components/layout/Layout"
+import Head from "../components/layout/Head"
 
 const NotFound = () => {
   return (
