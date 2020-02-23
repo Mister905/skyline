@@ -38,27 +38,27 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-}
+} 
 
-module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+// module.exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
 
-  const city_template = path.resolve("./src/templates/city.js")
-  const res = await graphql(`
-    query {
-      allContentfulBlogPost(sort: { fields: city, order: ASC }) {
-        distinct(field: city)
-      }
-    }
-  `)
+//   const city_template = path.resolve("./src/templates/city.js")
+//   const res = await graphql(`
+//     query {
+//       allContentfulBlogPost(sort: { fields: city, order: ASC }) {
+//         distinct(field: city)
+//       }
+//     }
+//   `)
 
-  res.data.allContentfulBlogPost.distinct.forEach((city, index) => {
-    createPage({
-      component: city_template,
-      path: `/${city.toLowerCase().replace(/ /g, "-")}`,
-      context: {
-        city
-      },
-    })
-  })
-}
+//   res.data.allContentfulBlogPost.distinct.forEach((city, index) => {
+//     createPage({
+//       component: city_template,
+//       path: `/${city.toLowerCase().replace(/ /g, "-")}`,
+//       context: {
+//         city
+//       },
+//     })
+//   })
+// }
