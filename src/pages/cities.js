@@ -1,35 +1,70 @@
 import React from "react"
-import Layout from "../components/layout/layout"
+import Layout from "../components/layout/Layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Head from "../components/layout/head"
+import Head from "../components/layout/Head"
 
-const CitiesPage = () => {
+const htmlDecode = input => {
+  var e = document.createElement("div")
+  e.innerHTML = input
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue
+}
+
+const Cities = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulBlogPost(sort: { fields: city, order: ASC }) {
         distinct(field: city)
-        edges {
-          node {
-            city
-          }
-        }
       }
     }
   `)
+
+  const second_half = data.allContentfulBlogPost.distinct.map(city => city)
+
+  var first_half = second_half.splice(0, Math.ceil(second_half.length / 2))
+
   return (
     <Layout>
       <Head title="Cities" />
       <div className="container mt-50">
         <div className="row">
           <div className="col m12">
-            Cities
-            {data.allContentfulBlogPost.edges.map((edge, i) => {
-              return (
-                <div className="row" key={i}>
-                  <div className="col m10 offset-m2 card city-card">{edge.node.city}</div>
+            <div className="row">
+              <div className="col m12 center-align">
+                <div className="cities-heading">Cities</div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col m4 offset-m2">
+                <div className="collection">
+                  {first_half.map((city, i) => {
+                    return (
+                      <Link
+                        to={city.toLowerCase().replace(/ /g, "-")}
+                        className="collection-item center-align"
+                        key={i}
+                      >
+                        {city}
+                      </Link>
+                    )
+                  })}
                 </div>
-              )
-            })}
+              </div>
+              <div className="col m4">
+                <div className="collection">
+                  {second_half.map((city, i) => {
+                    return (
+                      <Link
+                        to={city.toLowerCase().replace(/ /g, "-")}
+                        className="collection-item center-align"
+                        key={i}
+                      >
+                        {city}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -37,4 +72,4 @@ const CitiesPage = () => {
   )
 }
 
-export default CitiesPage
+export default Cities

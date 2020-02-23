@@ -1,8 +1,8 @@
 import React from "react"
 import "materialize-css/dist/css/materialize.min.css"
 import "../../assets/scss/index.scss"
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./Header"
+import Footer from "./Footer"
 
 const Layout = props => {
   return (

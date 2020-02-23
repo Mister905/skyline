@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Logo from "../../assets/img/skyline_logo.png"
 
-const header = () => {
+const Header = () => {
   return (
     <div>
       <nav className="custom-nav">
@@ -24,4 +24,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header

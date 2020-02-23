@@ -68,10 +68,10 @@ const Blog = props => {
             {previous && (
               <Link
                 to={previous.slug}
-                className="left fw-600 post-nav-link"
+                className="left fw-600 post-nav-link flex"
                 rel="prev"
               >
-                <i class="material-icons dp48">arrow_back</i> Previous
+                <i class="material-icons">arrow_back</i> Previous
               </Link>
             )}
           </div>
@@ -79,10 +79,10 @@ const Blog = props => {
             {next && (
               <Link
                 to={next.slug}
-                className="right fw-600 post-nav-link"
+                className="right fw-600 post-nav-link  flex"
                 rel="next"
               >
-                Next <i class="material-icons dp48">arrow_forward</i>
+                Next <i class="material-icons">arrow_forward</i>
               </Link>
             )}
           </div>

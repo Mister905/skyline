@@ -3,7 +3,7 @@ import Layout from "../components/layout/layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Head from "../components/layout/head"
 
-const IndexPage = () => {
+const Index = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulBlogPost(sort: { fields: created_at, order: DESC }) {
@@ -68,4 +68,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Index
